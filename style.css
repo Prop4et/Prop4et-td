@@ -1,0 +1,287 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  font-family: Tahoma;
+}
+
+.button {
+  background: #fff;
+  min-width: 100px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #444;
+  margin-bottom: 20px;
+  padding: 5px 20px;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transition: background-color 0.2s, transform 0.3s, height 0.2s, padding 0.2s, min-width 0.2s, font-size 0.2s, width 0.2s;
+}
+.button.big {
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+}
+.button:hover {
+  background: #a1d6ec;
+}
+.button.big:hover {
+  transform: scale(1.2);
+}
+.button.red {
+  background: #ec644b;
+}
+
+.button.modal-button {
+  width: 200px;
+}
+
+.button.ctrl:hover {
+  transform: scale(1.2);
+}
+
+.button.ctrl {
+  border: solid;
+  margin-left: 1.3%;
+  width: 15%;
+  height: 10%;
+  line-height: 60px;
+}
+
+.button.ctrl.hide{
+  display: none;
+}
+
+.actions-box {
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 30%;
+  margin-right: 2%;
+  overflow: visible;
+  z-index: 3;
+}
+
+.couple {
+  background: url(imgs/actionbox.jpg);
+  display: flex;
+  border: solid;
+  border-top: none;
+  width: 100%;
+}
+
+.couple.top{
+  border-top:solid;
+}
+
+.right{
+  border-left: solid;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container.game {
+  position: absolute;
+  z-index: 3;
+  bottom: 100%;
+  transition: opacity 0.8s;
+  background: #ededed;
+  opacity: 0;
+}
+.container.game.shown {
+  position: relative;
+  bottom: 0;
+  opacity: 1;
+  background: url(imgs/neutral_bg.png) repeat center/cover;
+}
+.container.splash {
+  background: url(imgs/bg.jpg) no-repeat center/cover;
+  flex-direction: column;
+}
+
+.couple2 {
+  position: absolute;
+  bottom: 2%;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  bottom: 1;
+}
+
+.content {
+  position: absolute;
+  display: flex;
+}
+
+.sep {
+  flex: 0 0 100%;
+}
+
+.game-canvas {
+  width: 100%;
+  transition: margin 0.2s;
+  border: solid;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+}
+
+.main-canvas{
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  border: solid;
+  border-color: transparent;
+}
+
+.game-box{
+  position: relative;
+}
+
+#dragdrop{
+  position: absolute;
+}
+
+#canvas{
+  z-index: 0;
+  background: #eee;
+
+}
+
+.road, .imgbg{
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  display: none;
+}
+.modal-overlay.shown {
+  display: block;
+  z-index: 4;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 2;
+  width: 60%;
+  height: 60%;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+.modal.vertical {
+  flex-direction: column;
+}
+.modal.transparent {
+  bottom: 100%;
+  transform: translateX(-50%);
+  transition: bottom 0.5s, transform 0.5s;
+  background: transparent;
+  box-shadow: none;
+  width: auto;
+  height: auto;
+  display: flex;
+}
+.modal.pause.shown {
+  z-index: 5;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+}
+.modal.infos.shown {
+  display: flex;
+  z-index: 5;
+}
+.modal.setting.shown {
+  display: flex;
+  z-index: 6;
+}
+.tutorial {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.margin{
+ margin-top: 30px;
+}
+
+#settingScreen {
+  width: 300px;
+  height: 250px;
+}
+
+.checkbox-group {
+  margin-bottom: 10px;
+}
+
+.slider-label {
+  margin-top: 10px;
+}
+
+.slider-container {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 11px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #333;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #333;
+  cursor: pointer;
+}

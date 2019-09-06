@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>TD</title>
+    <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+    <div class="modal-overlay" id="modal-overlay" onClick="closeTutorial();"></div>
+    <div class="modal infos" id="infos">
+        <div class="tutorial">
+            <p align=Center><B>COMANDI</B> </p>
+            Eroe:
+            <BLOCKQUOTE>
+            </BLOCKQUOTE>
+            Gatling:
+            <BLOCKQUOTE>
+            </BLOCKQUOTE>
+            Mappa:
+            <BLOCKQUOTE>
+            </BLOCKQUOTE>
+              Editor:
+              <BLOCKQUOTE>
+            </BLOCKQUOTE>
+            <br />
+        </div>
+    </div>
+
+    <div class="container game" id="game">
+        <div class="content" id="divcont">
+          <canvas id = "dragdrop"></canvas>
+            <div class="game-box" id="gamebox">
+                <canvas id = "canvas" class = "game-canvas"></canvas>
+                <canvas id = "main-canvas" class = "main-canvas"></canvas>
+                <canvas id = "enemy-canvas" class = "main-canvas"></canvas>
+                <!-- TODO: sto canvas ha dimensioni minori in quanto è quello dell'eroe e lo sposto di qua e di là -->
+                <canvas id = "hero-canvas"></canvas>
+                <canvas id = "dragturret"> </canvas>
+                <script src="handler.js"></script>
+                <script src="layout.js"></script>
+              <!--  <script src="worldCreation.js"> </script> -->
+                <script src="mapHandler.js"> </script>
+                <script src="utils.js"> </script>
+                <script src="gameLogic.js"> </script>
+                <script src="enemy.js"> </script>
+
+                <script src="turrets/missile.js"> </script>
+                <script src="turrets/taser.js"> </script>
+                <script src="turrets/mortar.js"> </script>
+                <script src="turrets/laser.js"> </script>
+
+
+            </div>
+            <div class="actions-box">
+              <div class="couple top">
+                <div class="pieces left">
+                  <canvas id="straightns" class="road" > </canvas>
+                </div>
+                <div class="pieces right">
+                  <canvas id="straightew" class="road" > </canvas>
+                </div>
+              </div>
+              <div class="couple">
+                <div class="pieces left">
+                  <canvas id="corner1/4" class="road" > </canvas>
+                </div>
+                <div class="pieces right">
+                  <canvas id="corner2/4" class="road" > </canvas>
+                </div>
+              </div>
+              <div class="couple">
+                <div class="pieces left">
+                  <canvas id="corner3/4" class="road"> </canvas>
+                </div>
+                <div class="pieces right">
+                  <canvas id="corner4/4" class="road" > </canvas>
+                </div>
+              </div>
+              <div class="couple">
+                <div class="pieces left">
+                  <canvas id="bg1" class="imgbg"> </canvas>
+                </div>
+                <div class="pieces right">
+                  <canvas id="bg2" class="imgbg"> </canvas>
+                </div>
+              </div>
+              <div class="couple">
+                <div class="pieces left">
+                  <canvas id="bg3" class="imgbg"> </canvas>
+                </div>
+                <div class="pieces right">
+                  <canvas id="bg4" class="imgbg" onclick="endCreation()"> </canvas>
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container splash" id="menu">
+        <div class="button big" onclick="openGame()">Play Game</div>
+        <div class="button big" onclick="openTutorial()">Comandi</div>
+    </div>
+</body>
+</html>
