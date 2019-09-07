@@ -30,6 +30,10 @@ class Mortar{
     this.range = computeRange();
   }
 
+  setPstep(s){
+    this.pstep = s;
+  }
+
   shot(enemy, all, time){
     ctxenemy.fillStyle = "rgba(0, 102, 0, 0.5)";
     if(((enemy.x-this.x)*(enemy.x-this.x) + (enemy.y-this.y)*(enemy.y-this.y)) < (this.range*this.range) && time-this.time>=1500){//fire

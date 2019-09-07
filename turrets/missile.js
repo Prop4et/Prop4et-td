@@ -29,6 +29,11 @@ class Missile{
     this.setY(coordy[j]+tileH/2-dimtur/2);
     this.range = computeRange();
   }
+
+  setStep(s){
+    this.step = s;
+  }
+
   shot(enemy){
     ctxenemy.fillStyle = "rgb(204, 51, 153)";
 

@@ -33,6 +33,7 @@ var trt4 = new Image();
 var img1 = new Image();
 var img2 = new Image();
 var img3 = new Image();
+var hero;
 
 var m;
 
@@ -61,12 +62,15 @@ function setDims(){
   ctxmain.canvas.width = w1;
   ctxenemy.canvas.width = w1;
   ctxdragturret.canvas.width = w1;
+  ctxhero.canvas.width = w1;
 
 
   ctx.canvas.height = h1;
   ctxmain.canvas.height = h1;
   ctxenemy.canvas.height = h1;
   ctxdragturret.canvas.height = h1;
+  ctxhero.canvas.height = h1;
+
 
 
   var w2 = Math.floor(w1/4);
@@ -108,8 +112,11 @@ function setDims(){
         ctxAction[i].textAlign = "center";
         ctxAction[i].strokeText(text[i-5], canvasAction[i].width/2, canvasAction[i].height-canvasAction[i].height/3);
       }
-      if(flagstart)
-        pauseonresize();
+      ctxAction[4].font = tileH+"px Arial";
+      ctxAction[4].textAlign = "center";
+      ctxAction[4].strokeText(money + "$", canvasAction[4].width/2, canvasAction[4].height-canvasAction[4].height/3);
+      hero.resizeHero(w1/2, h1/2);
+      hero.show();
     }
     else gameOver();
   }
@@ -296,6 +303,14 @@ function setP(evt){
   evt.preventDefault();
   for(var i=6; i<10 && canvasAction[i].id!=this.id; i++){ }
   if(!flaggameover)
+    init(i);
 
-  init(i);
+}
+
+function controlHero(evt){
+  hero.move(evt.keyCode);
+}
+
+function startHeroPost(){
+  hero.resetPos();
 }

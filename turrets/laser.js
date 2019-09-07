@@ -7,6 +7,7 @@ class Laser{
     this.matj = indexj;
     this.enemyi;
     this.time = 0;
+    this.limit = 500;
   }
 
   setX(x){
@@ -23,13 +24,13 @@ class Laser{
   }
 
   setTime(t){
-    this.time=t;
+    this.limit=t;
   }
 
   shot(enemy, c, time){
     ctxenemy.fillStyle = "rgb(204, 51, 153)";
 
-    if(((enemy.x-this.x)*(enemy.x-this.x) + (enemy.y-this.y)*(enemy.y-this.y)) < (this.range*this.range)  && time-this.time>=500){//fire
+    if(((enemy.x-this.x)*(enemy.x-this.x) + (enemy.y-this.y)*(enemy.y-this.y)) < (this.range*this.range)  && time-this.time>=this.limit){//fire
       this.time=time;
       ctxenemy.strokeStyle = "rgb(36, 57, 204)";
       ctxenemy.lineWidth = 5;

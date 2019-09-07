@@ -30,8 +30,6 @@ class Taser{
   shot(enemy){
     ctxenemy.fillStyle = "rgba(230, 230, 230, 0.5)";
     if(((enemy.x-this.x)*(enemy.x-this.x) + (enemy.y-this.y)*(enemy.y-this.y)) < (this.range*this.range)){//fire
-      console.log(this.counter);
-
       if(!this.slowed[enemy.index]){
         this.slowed[enemy.index] = true;
         enemy.step = this.vel/2;

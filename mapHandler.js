@@ -69,6 +69,7 @@ function workMain(){
 
   tileW = canvaswidth/8;
   tileH = canvasheight/8;
+  hero = new Hero(canvaswidth/2, canvasheight/2);
 
   computeGrid();
   initmat();
@@ -203,7 +204,6 @@ function drag(index){
         dragCurve4(mousePos.x, mousePos.y);
       break;
       default:
-        dragdropcanvas.style.zIndex = "0";
     }
 
   }else if(flagclick && flagcreat){
@@ -293,14 +293,29 @@ function drop(index, flagcreat){
     }
   }else{
     clearDragDrop();
-    ctxdragturret.clearRect(0, 0, ctxenemy.canvas.width, ctxenemy.canvas.height);
+    ctxdragturret.clearRect(0, 0, ctxdragturret.canvas.width, ctxdragturret.canvas.height);
     //var indexescorr = getIndexes(coordx[indexes.i]+tileW/2-dimtur, coordy[indexes.j]-25);
     ctxmain.drawImage(trt, coordx[indexes.i]+tileW/2-dimtur/2, coordy[indexes.j]+tileH/2-dimtur/2, dimtur, dimtur);
     bgmatrix[indexes.i][indexes.j] = index+6;
-    if(index == 1)  turrets[turrets.length] = new Missile(coordx[indexes.i]+tileW/2, coordy[indexes.j]+tileH/2, indexes.i, indexes.j, piecedistance);
-    if(index == 2)  turrets[turrets.length] = new Mortar(coordx[indexes.i]+tileW/2, coordy[indexes.j]+tileH/2, indexes.i, indexes.j, piecedistance);
-    if(index == 3)  turrets[turrets.length] = new Laser(coordx[indexes.i]+tileW/2, coordy[indexes.j]+tileH/2, indexes.i, indexes.j);
-    if(index == 4)  turrets[turrets.length] = new Taser(coordx[indexes.i]+tileW/2, coordy[indexes.j]+tileH/2, indexes.i, indexes.j);
+    if(index == 1 && money>=30){
+      turrets[turrets.length] = new Missile(coordx[indexes.i]+tileW/2, coordy[indexes.j]+tileH/2, indexes.i, indexes.j, piecedistance);
+      money-=30;
+    }
+    if(index == 2 && money>=60){
+      turrets[turrets.length] = new Mortar(coordx[indexes.i]+tileW/2, coordy[indexes.j]+tileH/2, indexes.i, indexes.j, piecedistance);
+      money-=60
+    }
+    if(index == 3 && money>=15){
+      turrets[turrets.length] = new Laser(coordx[indexes.i]+tileW/2, coordy[indexes.j]+tileH/2, indexes.i, indexes.j);
+      money-=15;
+    }
+    if(index == 4 && money>=5){
+      turrets[turrets.length] = new Taser(coordx[indexes.i]+tileW/2, coordy[indexes.j]+tileH/2, indexes.i, indexes.j);
+      money-=5;
+    }
+    ctxAction[4].clearRect(0, 0, canvasAction[4].width, canvasAction[4].height);
+    ctxAction[4].strokeText(money + "$", canvasAction[4].width/2, canvasAction[4].height-canvasAction[4].height/3);
+
   }
 }
 
@@ -365,6 +380,7 @@ function resizeMap(){
               turrets[t].ridim(i, j);
             }
           }
+
           helpsrc(trt, bgmatrix[i][j]-7);
         break;
       }

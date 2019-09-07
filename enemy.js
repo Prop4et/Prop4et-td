@@ -10,7 +10,6 @@ class Enemy{
     this.radiants = [Math.PI*0, Math.PI*0.5, Math.PI, Math.PI*1.5, Math.PI*2];
     this.radiantscopy;
     this.step = 2;
-    this.stepcount = 0;
     this.incradiants = 0.05;
     this.init = 0;
     this.index = i;
@@ -32,7 +31,6 @@ class Enemy{
       var arrindex = map.findIndex(indexeq, this);
       if(arrindex == 0 || arrindex == map.length-1){
         this.x+=this.step;
-        this.stepcount++;
         if(this.x>=coordx[xlen]){//game over
           pauseGame();
           flaggameover=true;
@@ -293,11 +291,6 @@ class Enemy{
         this.radiantscopy ? this.radiantscopy = null : {};
       }
   }
-
-  static getStep(){
-    return this.step;
-  }
-
 
 }
 
